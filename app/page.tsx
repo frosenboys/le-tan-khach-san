@@ -24,6 +24,7 @@ export default function Home() {
       price: "2.500.000",
       image: "/modern-hotel-standard-room.jpg",
       services: ["Free WiFi", "Air Conditioning", "32-inch TV", "Work Desk"],
+      color: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ export default function Home() {
       price: "4.200.000",
       image: "/luxury-hotel-deluxe-room.png",
       services: ["Free WiFi", "Premium Bed", "Mini Bar", "City View", "Bathrobe"],
+      color: "from-purple-500 to-pink-500",
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ export default function Home() {
       price: "7.000.000",
       image: "/elegant-hotel-suite-living-area.jpg",
       services: ["Free WiFi", "Living Room", "Jacuzzi Tub", "Premium Toiletries", "Concierge"],
+      color: "from-orange-500 to-red-500",
     },
     {
       id: 4,
@@ -45,6 +48,7 @@ export default function Home() {
       price: "14.000.000",
       image: "/luxury-presidential-suite-penthouse.jpg",
       services: ["24/7 Concierge", "Private Elevator", "Spa Access", "Fine Dining", "Personal Butler"],
+      color: "from-emerald-500 to-teal-500",
     },
   ]
 
@@ -75,9 +79,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-gradient-to-br from-accent/30 to-transparent rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent/20 to-transparent rounded-full blur-3xl opacity-40"></div>
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl opacity-30"></div>
+          <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/20 via-purple-500/15 to-transparent rounded-full blur-3xl opacity-60"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-pink-500/20 via-orange-500/15 to-transparent rounded-full blur-3xl opacity-50"></div>
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500/15 to-emerald-500/10 rounded-full blur-3xl opacity-40"></div>
         </div>
 
         <div className="relative max-w-5xl mx-auto text-center w-full">
@@ -87,7 +91,7 @@ export default function Home() {
 
           <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl font-bold mb-8 text-balance leading-tight">
             Online
-            <span className="block bg-gradient-to-r from-accent via-accent/90 to-accent/70 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Concierge
             </span>
           </h1>
@@ -111,16 +115,22 @@ export default function Home() {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto mt-20">
-            <div className="p-6 rounded-xl bg-card/40 border border-border/50 backdrop-blur-sm hover:bg-card/60 transition-all">
-              <div className="text-3xl sm:text-4xl font-bold text-accent font-heading">24/7</div>
+            <div className="p-6 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/30 backdrop-blur-sm hover:from-blue-500/20 hover:to-cyan-500/20 transition-all">
+              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-heading">
+                24/7
+              </div>
               <div className="text-xs sm:text-sm text-muted-foreground mt-2">Always Available</div>
             </div>
-            <div className="p-6 rounded-xl bg-card/40 border border-border/50 backdrop-blur-sm hover:bg-card/60 transition-all">
-              <div className="text-3xl sm:text-4xl font-bold text-accent font-heading">Instant</div>
+            <div className="p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30 backdrop-blur-sm hover:from-purple-500/20 hover:to-pink-500/20 transition-all">
+              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-heading">
+                Instant
+              </div>
               <div className="text-xs sm:text-sm text-muted-foreground mt-2">Quick Response</div>
             </div>
-            <div className="p-6 rounded-xl bg-card/40 border border-border/50 backdrop-blur-sm hover:bg-card/60 transition-all">
-              <div className="text-3xl sm:text-4xl font-bold text-accent font-heading">Premium</div>
+            <div className="p-6 rounded-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/30 backdrop-blur-sm hover:from-orange-500/20 hover:to-red-500/20 transition-all">
+              <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent font-heading">
+                Premium
+              </div>
               <div className="text-xs sm:text-sm text-muted-foreground mt-2">Guest Service</div>
             </div>
           </div>
@@ -151,7 +161,9 @@ export default function Home() {
                     alt={room.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t ${room.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
+                  ></div>
                 </div>
 
                 {/* Room Info */}
@@ -160,7 +172,11 @@ export default function Home() {
 
                   {/* Price */}
                   <div className="mb-6">
-                    <span className="font-heading text-4xl font-bold text-accent">{room.price}</span>
+                    <span
+                      className={`font-heading text-4xl font-bold bg-gradient-to-r ${room.color} bg-clip-text text-transparent`}
+                    >
+                      {room.price}
+                    </span>
                     <span className="text-muted-foreground text-sm ml-2">₫/night</span>
                   </div>
 
@@ -168,7 +184,9 @@ export default function Home() {
                   <div className="space-y-3 mb-8 flex-1">
                     {room.services.map((service, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-sm">
-                        <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                        <Check
+                          className={`w-5 h-5 bg-gradient-to-r ${room.color} bg-clip-text text-transparent flex-shrink-0`}
+                        />
                         <span className="text-muted-foreground">{service}</span>
                       </div>
                     ))}
@@ -177,7 +195,7 @@ export default function Home() {
                   {/* Book Button */}
                   <button
                     onClick={() => handleBookRoom(room)}
-                    className="w-full py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl"
+                    className={`w-full py-3 rounded-lg bg-gradient-to-r ${room.color} text-white font-semibold hover:shadow-lg transition-all`}
                   >
                     Book Now
                   </button>
@@ -195,7 +213,7 @@ export default function Home() {
             setSelectedRoom(null)
             setShowChat(true)
           }}
-          className="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-accent text-accent-foreground shadow-2xl hover:shadow-3xl hover:scale-110 transition-all flex items-center justify-center group"
+          className="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 text-accent-foreground shadow-2xl hover:shadow-3xl hover:scale-110 transition-all flex items-center justify-center group"
         >
           <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" />
         </button>
@@ -204,7 +222,7 @@ export default function Home() {
       {/* Chat Popup */}
       {showChat && (
         <div className="fixed bottom-8 right-8 z-50 w-96 h-[600px] rounded-2xl border border-border overflow-hidden shadow-2xl bg-background flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="flex items-center justify-between p-6 border-b border-border bg-gradient-to-r from-card/50 to-card/30">
+          <div className="flex items-center justify-between p-6 border-b border-border bg-gradient-to-r from-accent/20 to-accent/10">
             <div>
               <h2 className="font-heading font-semibold text-lg">Chat with Concierge</h2>
               {selectedRoom && (
