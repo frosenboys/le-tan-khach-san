@@ -6,6 +6,7 @@ import { MessageCircle, Sparkles } from "lucide-react"
 export default function Home() {
   const [showChat, setShowChat] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isChatLoading, setIsChatLoading] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,6 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center w-full">
-
           <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
             Assistant
             <span className="block bg-gradient-to-r from-accent via-accent to-accent/60 bg-clip-text text-transparent">
@@ -95,12 +95,26 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Botpress Webchat Embed */}
+            {isChatLoading && (
+              <div className="w-full flex-1 flex items-center justify-center bg-gradient-to-br from-background to-card/50">
+                <div className="flex flex-col items-center gap-4">
+                  <div className="relative w-12 h-12">
+                    <div className="absolute inset-0 rounded-full border-2 border-border"></div>
+                    <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-accent border-r-accent animate-spin"></div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Loading concierge assistant...</p>
+                </div>
+              </div>
+            )}
+
             <iframe
               src="https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/17/03/20251017032105-CZ4E5A4N.json"
-              className="w-full flex-1 border-0"
+              className={`w-full flex-1 border-0 transition-opacity duration-300 ${
+                isChatLoading ? "opacity-0 absolute" : "opacity-100"
+              }`}
               allow="microphone; camera"
               title="Hotel Concierge Chat"
+              onLoad={() => setIsChatLoading(false)}
             />
           </div>
         </div>
